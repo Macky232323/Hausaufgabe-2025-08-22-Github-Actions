@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Entwicklung des Computers: Eine Interaktive Reise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dunkelgrau/Blau */
+            color: #e5e7eb; /* Helles Grau */
+        }
+        .timeline-item .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+            padding: 0 1.5rem;
+        }
+        .timeline-item.active .content {
+            max-height: 1000px; /* Ausreichend hoch für den Inhalt */
+            padding: 1.5rem 1.5rem;
+        }
+        .timeline-item .icon {
+            transition: transform 0.5s ease-in-out;
+        }
+        .timeline-item.active .icon {
+            transform: rotate(45deg);
+        }
+        /* Subtile Verbindungslinie */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 1.25rem; /* Zentriert auf dem Icon */
+            top: 3.5rem; /* Startet unterhalb des Icons */
+            bottom: -1rem; /* Endet oberhalb des nächsten Icons */
+            width: 2px;
+            background-color: #374151; /* Grauer Strich */
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-8 md:py-16">
+        <header class="text-center mb-12 md:mb-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-2">Die Evolution des Computers</h1>
+            <p class="text-lg md:text-xl text-gray-400">Eine interaktive Reise von der Antike in die Zukunft</p>
+        </header>
+
+        <div class="relative max-w-3xl mx-auto">
+            
+            <!-- Timeline Item 1: Antike -->
+            <div class="timeline-item mb-8 relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">Antike Vorläufer (ca. 3000 v. Chr. – 1600 n. Chr.)</h2>
+                        <p class="text-gray-400 text-sm">Die Wurzeln des Rechnens</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <p class="text-gray-300 leading-relaxed">Die Geschichte des Computers beginnt nicht mit Strom, sondern mit dem menschlichen Bedürfnis zu zählen und zu messen. Der **Abakus**, vor über 4000 Jahren in Mesopotamien entstanden, war der erste mechanische Rechner. Ein technologisches Wunderwerk war der **Mechanismus von Antikythera** (ca. 100 v. Chr.), ein komplexes Zahnradsystem zur Vorhersage astronomischer Positionen – der erste analoge Computer der Welt.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2: Mechanik -->
+            <div class="timeline-item mb-8 relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">Die Ära der Mechanik (1600 – 1940)</h2>
+                        <p class="text-gray-400 text-sm">Zahnräder des Fortschritts</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <p class="text-gray-300 leading-relaxed">Im 17. Jahrhundert entstanden die ersten mechanischen Rechenmaschinen von **Wilhelm Schickard**, **Blaise Pascal** und **Gottfried Wilhelm Leibniz**. Der wahre Visionär war jedoch **Charles Babbage** im 19. Jahrhundert. Seine nie vollendete **Analytische Maschine** enthielt bereits alle Kernelemente eines modernen Computers: Rechenwerk, Speicher und programmierbare Eingabe über Lochkarten. **Ada Lovelace** schrieb den ersten Algorithmus dafür und gilt als erste Programmiererin.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3: Elektronik -->
+            <div class="timeline-item mb-8 relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M8 8l1.414-1.414M14.586 14.586L16 16m-7.172 0l-1.414-1.414M16 8l-1.414-1.414M8 16l1.414 1.414" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">Die Elektronische Revolution (1940 – 1970)</h2>
+                        <p class="text-gray-400 text-sm">Von Röhren zu Transistoren</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <p class="text-gray-300 leading-relaxed">Der Zweite Weltkrieg beschleunigte die Entwicklung. **Konrad Zuses Z3** (1941) war der erste programmgesteuerte Computer. Der **ENIAC** (1946) war der erste elektronische Universalrechner, ein 30-Tonnen-Koloss mit 17.000 Elektronenröhren. Die Erfindung des **Transistors** (1947) und des **integrierten Schaltkreises (IC)** (1958) waren die entscheidenden Durchbrüche, die Computer kleiner, schneller und zuverlässiger machten und das Mooresche Gesetz einleiteten.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4: PC & Internet -->
+            <div class="timeline-item mb-8 relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9M3 12a9 9 0 019-9m0 18a9 9 0 00-9-9m9-9V3" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">PC und Internet (1970 – 2010)</h2>
+                        <p class="text-gray-400 text-sm">Der Computer für jedermann</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <p class="text-gray-300 leading-relaxed">Der **Mikroprozessor** (1971) ermöglichte den Personal Computer. Firmen wie **Apple** und **IBM** brachten den Computer in den 1980ern in Büros und Haushalte. Die Entwicklung der **grafischen Benutzeroberfläche (GUI)** mit Maus und Fenstern machte die Bedienung intuitiv. Parallel entstand aus dem ARPANET das **Internet**, das durch das **World Wide Web** (Anfang 1990er) zu einem globalen Informationsnetz wurde und die Welt vernetzte.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 5: Gegenwart -->
+            <div class="timeline-item mb-8 relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">Die Gegenwart (2010 – heute)</h2>
+                        <p class="text-gray-400 text-sm">Mobile Ära und Künstliche Intelligenz</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <p class="text-gray-300 leading-relaxed">Heute ist der Computer allgegenwärtig. **Smartphones** sind unsere ständigen Begleiter. **Cloud Computing** stellt Rechenleistung und Speicher global zur Verfügung. Die größte Revolution ist jedoch die **Künstliche Intelligenz (KI)**. Algorithmen des maschinellen Lernens sind tief in unserem Alltag verankert – von Sprachassistenten über Empfehlungssysteme bis hin zur medizinischen Diagnostik.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 6: Zukunft -->
+            <div class="timeline-item relative">
+                <div class="flex items-center cursor-pointer p-4 bg-gray-800 rounded-lg shadow-lg relative z-10" onclick="toggleItem(this)">
+                    <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-xl font-semibold text-white">Prognose für die nächsten 50 Jahre</h2>
+                        <p class="text-gray-400 text-sm">Ein persönlicher Ausblick</p>
+                    </div>
+                </div>
+                <div class="content bg-gray-900 rounded-b-lg">
+                    <ul class="space-y-4 text-gray-300 leading-relaxed">
+                        <li><strong>Ambient Computing:</strong> Der Computer als physisches Gerät verschwindet. Rechenleistung wird unsichtbar in unsere Umgebung integriert sein (Wände, Kleidung, Brillen). Die Interaktion erfolgt über Sprache, Gesten und Gehirn-Computer-Schnittstellen.</li>
+                        <li><strong>KI als kognitiver Partner:</strong> KI wird unser Denken erweitern, nicht ersetzen. Sie wird unser Gedächtnis, unsere Kreativität und unsere Problemlösungsfähigkeiten verstärken.</li>
+                        <li><strong>Die Quanten-Revolution:</strong> Quantencomputer werden für spezialisierte Aufgaben nutzbar und revolutionieren Materialwissenschaft, Medikamentenentwicklung und Kryptografie.</li>
+                        <li><strong>Biologie & Silizium:</strong> Die Grenzen verschwimmen. Wir könnten DNA als Datenspeicher nutzen oder Zellen programmieren, um Krankheiten zu heilen. Der Computer der Zukunft könnte organisch sein.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript für die Interaktivität der Timeline
+        let activeItem = null;
+
+        function toggleItem(element) {
+            const item = element.parentElement;
+
+            if (activeItem && activeItem !== item) {
+                activeItem.classList.remove('active');
+            }
+
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                activeItem = null;
+            } else {
+                item.classList.add('active');
+                activeItem = item;
+            }
+        }
+        
+        // Optional: Das erste Element standardmäßig öffnen
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstItem = document.querySelector('.timeline-item');
+            if(firstItem) {
+                firstItem.querySelector('[onclick]').click();
+            }
+        });
+    </script>
+
+</body>
+</html>
